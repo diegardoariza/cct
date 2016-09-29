@@ -1,4 +1,4 @@
-package ServiceDesk.VO;
+package edu.uniandes.cct.serviceRequest.VO;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

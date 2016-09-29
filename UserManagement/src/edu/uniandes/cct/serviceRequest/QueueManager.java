@@ -1,4 +1,4 @@
-package ServiceDesk;
+package edu.uniandes.cct.serviceRequest;
 
 import java.util.concurrent.LinkedBlockingQueue;
 

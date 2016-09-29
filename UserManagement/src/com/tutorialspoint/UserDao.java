@@ -11,33 +11,22 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import edu.uniandes.cct.serviceRequest.ServiceDeskManager;
+
 public class UserDao {
 	public List<User> getAllUsers(int id, String nombre, String descripcion, String cargo, String area) {
 		List<User> userList = null;
-		Random r = new Random();
-		int ticketNumber = r.nextInt(1000000) + 1;
-		System.out.println(ticketNumber);
 
-//		try {
-//			File file = new File("Users.dat");
-//			if (!file.exists()) {
-				User user = new User(id, nombre, cargo, Integer.toString(ticketNumber));
-				userList = new ArrayList<User>();
-				userList.add(user);
-				saveUserList(userList);
-/*
-			} else {
-				FileInputStream fis = new FileInputStream(file);
-				ObjectInputStream ois = new ObjectInputStream(fis);
-				userList = (List<User>) ois.readObject();
-				ois.close();
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		}
-*/
+		ServiceDeskManager sdm = new ServiceDeskManager();
+		sdm.StartAsyncProcessing();
+
+		String srid = sdm.CreateRequest(descripcion);
+
+		User user = new User(id, nombre, cargo, srid);
+		userList = new ArrayList<User>();
+		userList.add(user);
+		saveUserList(userList);
+
 		return userList;
 	}
 

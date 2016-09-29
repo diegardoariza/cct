@@ -1,11 +1,12 @@
-package ServiceDesk;
+package edu.uniandes.cct.serviceRequest;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
-import ServiceDesk.VO.SupportRequestVO;
+import edu.uniandes.cct.serviceRequest.VO.*;
+
 
 public class ServiceDeskManager {
 
@@ -18,8 +19,7 @@ public class ServiceDeskManager {
 		taskQueue = new QueueManager();
 	}
 	
-	public String CreateRequest(String text)
-	{
+	public String CreateRequest(String text){
 		final ExecutorService service;
         final Future<SupportRequestVO>  task;     
         String value = "";
