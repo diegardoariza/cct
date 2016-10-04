@@ -1,4 +1,4 @@
-package edu.uniandes.cct.serviceRequest;
+package ServiceDesk;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

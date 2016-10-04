@@ -1,4 +1,8 @@
-package edu.uniandes.cct.serviceRequest;
+package ServiceDesk;
+
+import ServiceDesk.VO.ClientVO;
+import ServiceDesk.VO.SupportRequestVO;
+import ServiceDesk.VO.SupportResponsibleVO;
 
 public class AsyncThread extends Thread {
 
@@ -18,7 +22,7 @@ public class AsyncThread extends Thread {
 
     public void run() {
 
-        String task = null;
+    	SupportRequestVO task = null;
         while (true) {
 
             try {
@@ -40,14 +44,27 @@ public class AsyncThread extends Thread {
         }
     }
     
-    public void execute(String task){
+    public void execute(SupportRequestVO task){
     	
        //System.out.println("Execute Asyn...");
-       //System.out.println("Asynchronous processing of ticket :" + task);
+       System.out.println("Asynchronous processing of ticket :" + task.getTicketNumber() + "-" + task.getCreationText());
        try {
     	   //Simulando el procesamiento de SR.
-		   Thread.sleep(500);
-       } catch (InterruptedException e) {
+    	   String creationText = task.getCreationText();
+    	   String[] clientInfo = creationText.split(";");
+    	   String id = clientInfo[0];
+    	   String name = clientInfo[1];
+    	   String description = clientInfo[2];
+    	   String job = clientInfo[3];
+    	   String area = clientInfo[4];
+    	   ClientVO client = new ClientVO(id,name,job,area);
+    	   SupportResponsibleVO responsible = new SupportResponsibleVO("Support Agent");
+    	   task.setClient(client);
+    	   task.setAssignedTo(responsible);
+    	   task.setDescription(description);
+    	   task.save();
+    	   
+       } catch (Exception e) {
     	   
        }
        

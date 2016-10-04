@@ -1,28 +1,30 @@
-package edu.uniandes.cct.serviceRequest;
+package ServiceDesk;
 
 import java.util.concurrent.LinkedBlockingQueue;
 
+import ServiceDesk.VO.SupportRequestVO;
+
 public class QueueManager {
 	
-    private static LinkedBlockingQueue<String> taskQueue = null;
+    private static LinkedBlockingQueue<SupportRequestVO> taskQueue = null;
 
     public QueueManager() {
-        taskQueue = new LinkedBlockingQueue<String>();
+        taskQueue = new LinkedBlockingQueue<SupportRequestVO>();
     }
 
-    public void addRequest(String request){
+    public void addRequest(SupportRequestVO request){
         taskQueue.add(request);
     }
     
-    public String getRequest() throws InterruptedException{
+    public SupportRequestVO getRequest() throws InterruptedException{
         return taskQueue.take();
     }
 
-    public static LinkedBlockingQueue<String> getTaskQueue() {
+    public static LinkedBlockingQueue<SupportRequestVO> getTaskQueue() {
         return taskQueue;
     }
 
-    public static void setTaskQueue(LinkedBlockingQueue<String> taskQueue) {
+    public static void setTaskQueue(LinkedBlockingQueue<SupportRequestVO> taskQueue) {
     	QueueManager.taskQueue = taskQueue;
     }
     

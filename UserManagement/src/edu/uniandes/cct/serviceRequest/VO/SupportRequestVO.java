@@ -1,8 +1,10 @@
-package edu.uniandes.cct.serviceRequest.VO;
+package ServiceDesk.VO;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+
+import DAO.SupportRequest;
 
 public class SupportRequestVO {
 	private String creationText;
@@ -100,6 +102,16 @@ public class SupportRequestVO {
 	}
 	public void setClient(ClientVO client) {
 		this.client = client;
+	}
+	public void save() {
+		
+        try {
+    		SupportRequest dao = new SupportRequest();
+			dao.readDataBase(this.ticketNumber, this.description);
+		} catch (Exception e) {
+
+		}
+		
 	}
 	
 }

@@ -1,12 +1,11 @@
-package edu.uniandes.cct.serviceRequest;
+package ServiceDesk;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
-import edu.uniandes.cct.serviceRequest.VO.*;
-
+import ServiceDesk.VO.SupportRequestVO;
 
 public class ServiceDeskManager {
 
@@ -19,7 +18,8 @@ public class ServiceDeskManager {
 		taskQueue = new QueueManager();
 	}
 	
-	public String CreateRequest(String text){
+	public String CreateRequest(String text)
+	{
 		final ExecutorService service;
         final Future<SupportRequestVO>  task;     
         String value = "";
@@ -30,9 +30,8 @@ public class ServiceDeskManager {
 
             final SupportRequestVO sr;
             sr = task.get(); // this raises ExecutionException if thread dies
-            text = sr.getCreationText();
             value = sr.getTicketNumber();
-            ServiceDeskManager.taskQueue.addRequest(value + "|" + text);
+            ServiceDeskManager.taskQueue.addRequest(sr);
         } catch(final InterruptedException ex) {
             ex.printStackTrace();
         } catch(final ExecutionException ex) {

@@ -1,4 +1,4 @@
-package edu.uniandes.cct.serviceRequest.VO;
+package ServiceDesk.VO;
 
 public class SupportResponsibleVO {
 	

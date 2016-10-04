@@ -1,10 +1,8 @@
-package edu.uniandes.cct.serviceRequest;
+package ServiceDesk;
 
 import java.util.Date;
 import java.util.concurrent.Callable;
-
-import edu.uniandes.cct.serviceRequest.VO.SupportRequestVO;
-
+import ServiceDesk.VO.SupportRequestVO;
 
 public class SyncThread 
 	implements Callable<SupportRequestVO> {
