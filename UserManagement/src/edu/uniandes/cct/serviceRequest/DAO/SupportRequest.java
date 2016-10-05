@@ -1,4 +1,4 @@
-package DAO;
+package edu.uniandes.cct.serviceRequest.DAO;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -14,7 +14,8 @@ public class SupportRequest {
 
     public void readDataBase(String ticketNumber, String description) throws Exception {
             try {
-                    // This will load the MySQL driver, each DB has its own driver
+                   
+            	// This will load the MySQL driver, each DB has its own driver
                     Class.forName("com.mysql.jdbc.Driver");
                     // Setup the connection with the DB
                     connect = DriverManager

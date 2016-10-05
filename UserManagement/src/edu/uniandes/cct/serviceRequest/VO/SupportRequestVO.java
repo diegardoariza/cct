@@ -1,13 +1,13 @@
-package ServiceDesk.VO;
+package edu.uniandes.cct.serviceRequest.VO;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-import DAO.SupportRequest;
+import edu.uniandes.cct.serviceRequest.DAO.SupportRequest;
 
 public class SupportRequestVO {
-	private String creationText;
+	private String nombre;
 	private String ticketNumber;
 	private Date creationDate;
 	private Date closeDate;
@@ -15,26 +15,58 @@ public class SupportRequestVO {
 	private String priority;
 	private String description;
 	private double slaHours;
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public String getCargo() {
+		return cargo;
+	}
+	public void setCargo(String cargo) {
+		this.cargo = cargo;
+	}
+	public String getArea() {
+		return area;
+	}
+	public void setArea(String area) {
+		this.area = area;
+	}
 	private SupportResponsibleVO assignedTo;
 	private ClientVO client;
 	
-	public SupportRequestVO(Date creaationDate, String creationText) {
+	private String cargo;
+	private String area;
+	private int id;
+	
+	public SupportRequestVO(Date creaationDate,int id, String nombre, String descripcion, String cargo, String area) {
 		super();
-		this.creationText = creationText;
+		this.nombre = nombre;
 		this.creationDate = creaationDate;
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmssSSS");
 		this.ticketNumber = sdf.format(this.creationDate);
 		this.category = "";
 		this.priority = "";
-		this.description = "";
+		this.description = descripcion;
 		this.slaHours = 0;
 		this.assignedTo = null;
 		this.client = null;
+		
+		this.area=area;
+		this.cargo=cargo;
+		this.id=id;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 	public SupportRequestVO(String creationText, Date creaationDate, String type, String priority, String description,
 			ArrayList<String> attachments, double slaHours, SupportResponsibleVO assignedTo, ClientVO client) {
 		super();
-		this.creationText = creationText;
+		this.nombre = creationText;
 		this.creationDate = creaationDate;
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmssSSS");
 		this.ticketNumber = sdf.format(this.creationDate);
@@ -47,10 +79,10 @@ public class SupportRequestVO {
 	}
 
 	public String getCreationText() {
-		return creationText;
+		return nombre;
 	}
 	public void setCreationText(String creationText) {
-		this.creationText = creationText;
+		this.nombre = creationText;
 	}
 	public String getTicketNumber() {
 		return ticketNumber;

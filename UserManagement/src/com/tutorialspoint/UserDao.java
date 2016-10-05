@@ -20,7 +20,7 @@ public class UserDao {
 		ServiceDeskManager sdm = new ServiceDeskManager();
 		sdm.StartAsyncProcessing();
 
-		String srid = sdm.CreateRequest(descripcion);
+		String srid = sdm.CreateRequest(id,nombre,descripcion,cargo,area);
 
 		User user = new User(id, nombre, cargo, srid);
 		userList = new ArrayList<User>();

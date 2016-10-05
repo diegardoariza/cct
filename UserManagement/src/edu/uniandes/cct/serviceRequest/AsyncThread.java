@@ -1,8 +1,9 @@
-package ServiceDesk;
+package edu.uniandes.cct.serviceRequest;
 
-import ServiceDesk.VO.ClientVO;
-import ServiceDesk.VO.SupportRequestVO;
-import ServiceDesk.VO.SupportResponsibleVO;
+
+import edu.uniandes.cct.serviceRequest.VO.ClientVO;
+import edu.uniandes.cct.serviceRequest.VO.SupportRequestVO;
+import edu.uniandes.cct.serviceRequest.VO.SupportResponsibleVO;
 
 public class AsyncThread extends Thread {
 
@@ -50,13 +51,13 @@ public class AsyncThread extends Thread {
        System.out.println("Asynchronous processing of ticket :" + task.getTicketNumber() + "-" + task.getCreationText());
        try {
     	   //Simulando el procesamiento de SR.
-    	   String creationText = task.getCreationText();
-    	   String[] clientInfo = creationText.split(";");
-    	   String id = clientInfo[0];
-    	   String name = clientInfo[1];
-    	   String description = clientInfo[2];
-    	   String job = clientInfo[3];
-    	   String area = clientInfo[4];
+    	   
+    	   String id = task.getId()+"";
+    	   String name = task.getNombre();
+    	   String description = task.getDescription();
+    	   String job = task.getCargo();
+    	   String area = task.getArea();
+    	   
     	   ClientVO client = new ClientVO(id,name,job,area);
     	   SupportResponsibleVO responsible = new SupportResponsibleVO("Support Agent");
     	   task.setClient(client);
@@ -65,6 +66,8 @@ public class AsyncThread extends Thread {
     	   task.save();
     	   
        } catch (Exception e) {
+    	   System.err.println(e);
+    	   System.out.println("esta fallando antes de llamar la DB");
     	   
        }
        

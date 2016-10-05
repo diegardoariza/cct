@@ -1,8 +1,8 @@
-package ServiceDesk;
+package edu.uniandes.cct.serviceRequest;
 
 import java.util.concurrent.LinkedBlockingQueue;
 
-import ServiceDesk.VO.SupportRequestVO;
+import edu.uniandes.cct.serviceRequest.VO.SupportRequestVO;
 
 public class QueueManager {
 	
