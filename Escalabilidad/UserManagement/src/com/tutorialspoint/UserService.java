@@ -22,10 +22,10 @@ public class UserService {
 	 private static ServiceDeskManager sdm;
 
 	 public UserService() {
-		System.gc();
-		InputDisruptor.startProcessing();
-		OutputDisruptor.startProcessing();
+		 System.gc();
 		 if (sdm == null){
+		  	 InputDisruptor.startProcessing();
+			 OutputDisruptor.startProcessing();
 			 sdm = new ServiceDeskManager();
 			 sdm.StartAsyncProcessing();
 		 }
@@ -50,8 +50,8 @@ public class UserService {
 		@Path("/users2")
 		@Produces(MediaType.APPLICATION_XML)
 		@Consumes("application/x-www-form-urlencoded")
-		public boolean getUsers2(@FormParam("IDS") String idList) {
+		public void getUsers2(@FormParam("IDS") String idList) {
 			System.out.println(idList);;
-			return userDao.getAllUsers2(idList);
+			userDao.getAllUsers2(idList);
 		}
 }

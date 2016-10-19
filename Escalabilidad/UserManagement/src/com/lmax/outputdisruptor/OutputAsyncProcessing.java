@@ -17,9 +17,9 @@ public class OutputAsyncProcessing {
 
     public void createThreadPool() {
 
-        ExecutorService ex = Executors.newFixedThreadPool(10);
+        ExecutorService ex = Executors.newFixedThreadPool(300);
         OutputAsyncThread t;
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 300; i++) {
             t = new OutputAsyncThread();
             t.setEventQueue(outputQueue);
             ex.execute(t);

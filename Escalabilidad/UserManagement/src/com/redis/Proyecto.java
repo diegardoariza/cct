@@ -104,7 +104,7 @@ public static Proyecto cargarProyecto(String idProyecto){
 	Jedis jedis = new Jedis("localhost");
 	Proyecto proyecto = new Proyecto();
 	Map<String, String> properties = jedis.hgetAll("proyecto:" + idProyecto);
-    proyecto.setNombreProyecto(properties.get("nombreProyecto"));
+	proyecto.setNombreProyecto(properties.get("nombreProyecto"));
     proyecto.setMovimiento(tipoMovimiento.valueOf(properties.get("movimiento")));
     proyecto.setValor(properties.get("valor"));
     proyecto.setFecha(properties.get("fecha"));

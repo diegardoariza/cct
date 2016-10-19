@@ -28,7 +28,7 @@ public class OutputAsyncThread extends Thread {
                 //System.out.println("Async Thread running...");
                 if(outputQueue != null)
                 {
-                	eventResult = (LmaxEvent) outputQueue.getEvent();
+                	eventResult = (Object) outputQueue.getEvent();
                 	if(eventResult != null)
                 		execute(eventResult);
                 }

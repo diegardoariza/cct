@@ -7,6 +7,6 @@ public class Publisher {
 	{
 		// Call interface and then result
 		Proyecto proyecto = (Proyecto) eventResult;
-        System.out.println("Call interface and then result :" + proyecto.getId());
+        System.out.println("Call interface and then result :" + proyecto.getValor());
 	}
 }
