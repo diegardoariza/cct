@@ -19,6 +19,7 @@ import edu.uniandes.cct.serviceRequest.ServiceDeskManager;
 public class UserService {
 
 	 UserDao userDao = new UserDao();
+	 MonitoringInfoDao MonitoringInfoDao = new MonitoringInfoDao();
 	 private static ServiceDeskManager sdm;
 
 	 public UserService() {
@@ -54,4 +55,12 @@ public class UserService {
 			System.out.println(idList);;
 			return userDao.getAllUsers2(idList);
 		}
+		
+		@GET
+		@Path("/monitoring")
+		@Produces(MediaType.APPLICATION_XML)
+		@Consumes("application/x-www-form-urlencoded")
+		public MonitoringInfo monitoring() {
+			return MonitoringInfoDao.getStatusInfo();
+	}
 }
