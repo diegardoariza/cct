@@ -35,6 +35,7 @@ public class UserService {
 				sdm.StartAsyncProcessing();
 			}
 		} catch (Exception e) {
+			e.printStackTrace();
             logger.fatal("Esto es información:"+ "UserService class failed, please contact system admin!");
 		}
 	 }

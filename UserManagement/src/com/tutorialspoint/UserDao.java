@@ -36,6 +36,7 @@ public class UserDao {
 		try {
 			InputDisruptor.recieveEvent(idList);
 		} catch (Exception e) {
+			e.printStackTrace();
             logger.fatal("Esto es información:"+ "UserDao class failed, please contact system admin!");
 		}
 		return true;

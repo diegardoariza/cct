@@ -40,7 +40,7 @@ public class InputAsyncThread extends Thread {
                 	Thread.sleep(100);
                 }
             } catch (Exception e) {
-
+    			e.printStackTrace();
                 System.out.println("Exception on input thread, please contact system admin!");
                 logger.fatal("Esto es información:"+ "Exception on input thread, please contact system admin!");
             }
