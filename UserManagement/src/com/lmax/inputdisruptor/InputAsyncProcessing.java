@@ -17,7 +17,7 @@ public class InputAsyncProcessing {
         this.inputQueue = inputQueue;
     }
 
-    public void createThreadPool() {
+    public void createThreadPool() throws Exception{
 
         ExecutorService ex = Executors.newFixedThreadPool(10);
         InputAsyncThread t;

@@ -7,11 +7,14 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.apache.log4j.Logger;
 import com.lmax.inputdisruptor.InputDisruptor;
 
 import edu.uniandes.cct.serviceRequest.ServiceDeskManager;
 
 public class UserDao {
+    private final static Logger logger = Logger.getLogger(UserDao.class);
 	public List<User> getAllUsers(int id, String nombre, String descripcion, String cargo, String area) {
 		List<User> userList = null;
 
@@ -30,7 +33,11 @@ public class UserDao {
 	
 	public boolean getAllUsers2(String idList)
 	{
-		InputDisruptor.recieveEvent(idList);
+		try {
+			InputDisruptor.recieveEvent(idList);
+		} catch (Exception e) {
+            logger.fatal("Esto es información:"+ "UserDao class failed, please contact system admin!");
+		}
 		return true;
 	}
 

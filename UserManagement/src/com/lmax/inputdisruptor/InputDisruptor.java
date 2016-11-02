@@ -7,7 +7,7 @@ public class InputDisruptor {
 	private static CircularQueueManager inputQueue;
 	private static InputAsyncProcessing asyncProcessing = null;
 	
-	public static void startProcessing()
+	public static void startProcessing() throws Exception
 	{
 		inputQueue = new CircularQueueManager();
 		asyncProcessing =  new InputAsyncProcessing();
@@ -15,7 +15,7 @@ public class InputDisruptor {
 		asyncProcessing.createThreadPool();
 	}
 	
-	public static void recieveEvent(String idList)
+	public static void recieveEvent(String idList) throws Exception
 	{
 		InputReciever.recieveEvent(inputQueue, idList);
 	}

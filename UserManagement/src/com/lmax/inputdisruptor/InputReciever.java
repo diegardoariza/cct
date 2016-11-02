@@ -4,7 +4,7 @@ import com.lmax.utils.CircularQueueManager;
 import com.lmax.vo.MarshalledEvent;
 
 public class InputReciever {
-	public static CircularQueueManager recieveEvent(CircularQueueManager inputQueue, String idList)
+	public static CircularQueueManager recieveEvent(CircularQueueManager inputQueue, String idList) throws Exception
 	{	
 		MarshalledEvent event = new MarshalledEvent(idList);
 		inputQueue.addEvent(event);

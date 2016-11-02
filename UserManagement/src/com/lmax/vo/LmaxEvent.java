@@ -4,14 +4,14 @@ import java.util.ArrayList;
 
 public class LmaxEvent {
 
-	private int ID;
+	private int id;
 	private int parentID;
 	private ArrayList<Integer> idList = new ArrayList<Integer>();
 	private boolean processed;
 
-	public LmaxEvent(int iD, int parentID, ArrayList<Integer> idList, boolean processed) {
+	public LmaxEvent(int id, int parentID, ArrayList<Integer> idList, boolean processed) {
 		super();
-		ID = iD;
+		this.id = id;
 		this.parentID = parentID;
 		this.idList = idList;
 		this.processed = processed;
@@ -26,11 +26,11 @@ public class LmaxEvent {
 	}
 
 	public int getID() {
-		return ID;
+		return id;
 	}
 
-	public void setID(int iD) {
-		ID = iD;
+	public void setID(int id) {
+		this.id = id;
 	}
 
 	public int getParentID() {

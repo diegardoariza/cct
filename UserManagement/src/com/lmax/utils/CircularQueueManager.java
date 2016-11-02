@@ -13,8 +13,11 @@ public class CircularQueueManager {
     	eventQueue.add(request);
     }
     
-    public Object getEvent() throws InterruptedException{
+    public Object takeEvent() throws InterruptedException{
         return eventQueue.take();
+    }
+    public Object pollEvent() throws InterruptedException{
+        return eventQueue.poll();
     }
 
     public LinkedBlockingQueue<Object> getEventQueue() {
