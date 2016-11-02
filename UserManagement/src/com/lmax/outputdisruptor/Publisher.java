@@ -19,9 +19,10 @@ public class Publisher {
 			String[] ids = event.getIdList().split(";");
 			for(int j=0 ; i < ids.length;i++)
 			{
-				Proyecto cargarProy = new Proyecto();
-			    cargarProy = Proyecto.cargarProyecto(""+ids[j]);
-			    System.out.println("Call interface and then result :" + cargarProy.getId());
+//				Proyecto cargarProy = new Proyecto();
+//			    cargarProy = Proyecto.cargarProyecto(""+ids[j]);
+//			    System.out.println("Call interface and then result :" + cargarProy.getId());
+			System.out.println("Call interface and then result :" + ids[j]);
 			}
 		}
 	}
