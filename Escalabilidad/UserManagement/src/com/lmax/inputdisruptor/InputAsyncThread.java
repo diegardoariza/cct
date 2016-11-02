@@ -32,6 +32,8 @@ public class InputAsyncThread extends Thread {
                 	event = (MarshalledEvent) inputQueue.getEvent();
                 	if(event != null)
                 		execute(event);
+                    else
+                    	Thread.sleep(10);
                 }
                 else
                 {
@@ -39,6 +41,7 @@ public class InputAsyncThread extends Thread {
                 }
             } catch (Exception e) {
 
+   		     	e.printStackTrace();
                 System.out.println("Exception on input thread, please contact system admin!");
             }
         }

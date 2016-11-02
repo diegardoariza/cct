@@ -19,9 +19,9 @@ public class InputAsyncProcessing {
 
     public void createThreadPool() {
 
-        ExecutorService ex = Executors.newFixedThreadPool(100);
+        ExecutorService ex = Executors.newFixedThreadPool(10);
         InputAsyncThread t;
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 10; i++) {
             t = new InputAsyncThread();
             t.setEventQueue(inputQueue);
             ex.execute(t);

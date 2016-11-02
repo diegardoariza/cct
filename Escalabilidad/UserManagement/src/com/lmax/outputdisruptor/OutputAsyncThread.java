@@ -31,6 +31,8 @@ public class OutputAsyncThread extends Thread {
                 	eventResult = (Object) outputQueue.getEvent();
                 	if(eventResult != null)
                 		execute(eventResult);
+                    else
+                    	Thread.sleep(10);
                 }
                 else
                 {
@@ -38,6 +40,7 @@ public class OutputAsyncThread extends Thread {
                 }
             } catch (Exception e) {
 
+   		     	e.printStackTrace();
                 System.out.println("Exception on output thread, please contact system admin!");
             }
         }
